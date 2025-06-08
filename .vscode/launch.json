@@ -1,0 +1,59 @@
+{
+    "version": "0.2.0",
+    "configurations": [        {
+            "name": "LlammaClient (Aspire HTTP)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-aspire",
+            "program": "${workspaceFolder}/LlammaClient.AppHost/bin/Debug/net8.0/LlammaClient.AppHost.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/LlammaClient.AppHost",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5000",
+                "DOTNET_DASHBOARD_OTLP_ENDPOINT_URL": "http://localhost:18888",
+                "DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS": "true"
+            }
+        },        {
+            "name": "LlammaClient (Aspire HTTPS)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-aspire",
+            "program": "${workspaceFolder}/LlammaClient.AppHost/bin/Debug/net8.0/LlammaClient.AppHost.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/LlammaClient.AppHost",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "https://localhost:7000",
+                "DOTNET_DASHBOARD_OTLP_ENDPOINT_URL": "http://localhost:18888",
+                "DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS": "true"
+            }
+        },        {
+            "name": "LlammaClient (Aspire WSL)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-aspire",
+            "program": "${workspaceFolder}/LlammaClient.AppHost/bin/Debug/net8.0/LlammaClient.AppHost.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/LlammaClient.AppHost",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://0.0.0.0:5000",
+                "DOTNET_DASHBOARD_OTLP_ENDPOINT_URL": "http://0.0.0.0:18888",
+                "DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS": "true"
+            },
+            "pipeTransport": {
+                "pipeCwd": "${workspaceFolder}",
+                "pipeProgram": "wsl",
+                "pipeArgs": [],
+                "debuggerPath": "/usr/share/dotnet/dotnet"
+            }
+        }
+    ]
+}

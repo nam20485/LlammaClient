@@ -42,6 +42,50 @@
             "label": "5. Trust .NET HTTPS certificate",
             "type": "shell",
             "command": "dotnet dev-certs https --trust"
+        },
+        {
+            "label": "build-aspire",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/LlammaClient.AppHost/LlammaClient.AppHost.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "--no-dependencies"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "watch-aspire",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/LlammaClient.AppHost/LlammaClient.AppHost.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "isBackground": true,
+            "options": {
+                "env": {
+                    "ASPNETCORE_ENVIRONMENT": "Development",
+                    "DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS": "true"
+                }
+            }
         }
     ]
 }
