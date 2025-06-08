@@ -40,8 +40,14 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [5000, 5001, 8000, 1433],
 
+	// Environment variables for development
+	"containerEnv": {
+		"ASPNETCORE_ENVIRONMENT": "Development",
+		"DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS": "true"
+	},
+
     // Post create commands to run after the container is created.
-	"postCreateCommand": "bash .devcontainer/sql/postCreateCommand.sh 'database/Library/bin/Debug'",
+	"postCreateCommand": "bash .devcontainer/setup-environment.sh && bash .devcontainer/sql/postCreateCommand.sh 'database/Library/bin/Debug'",
 
 	// Post start commands to run after the container is started.
 	
